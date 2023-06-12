@@ -8,11 +8,11 @@ import { addContact } from 'redux/operations';
 export default function ContactForm() {
 
     const [name, setName] = useState('');
-    const [number, setNumber] = useState('');
+    const [phone, setPhone] = useState('');
     const contacts = useSelector(selectContacts);
     const dispatch = useDispatch();
 
-    const onAddContact = (name, number) => dispatch(addContact(name, number));
+    const onAddContact = (name, phone) => dispatch(addContact(name, phone));
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -23,11 +23,11 @@ export default function ContactForm() {
         if(isAdded(name)) {
             return alert(`${name} is already in contacts`);
         } else {
-            onAddContact(name, number);
+            onAddContact(name, phone);
         }
 
         setName(''); 
-        setNumber('');
+        setPhone('');
     }
 
         return (
@@ -42,22 +42,22 @@ export default function ContactForm() {
                     onChange={e => setName(e.target.value)}
                     // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                    required
+                    // required
                   />
                 </label>
-                <label className={css.label} id="number" htmlFor="number">Number
+                <label className={css.label} id="phone" htmlFor="phone">phone
                     <input className={css.input}
                         type="tel"
-                        name="number"
-                        value={number}
-                        id="number"
-                        onChange={e => setNumber(e.target.value)}
+                        name="phone"
+                        value={phone}
+                        id="phone"
+                        onChange={e => setPhone(e.target.value)}
                         // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        required
+                        // title="Phone phone must be digits and can contain spaces, dashes, parentheses and can start with +"
+                        // required
                     />
                 </label>
-              <button type="submit" disabled={!(name && number)}>Add contact</button>
+              <button type="submit" disabled={!(name && phone)}>Add contact</button>
             </form>
           </>
         );

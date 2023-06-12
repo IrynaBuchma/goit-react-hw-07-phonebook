@@ -21,10 +21,10 @@ export default function ContactList() {
     return (
         <>
          <ul className={css.list}>
-            {filterContacts.map(({ id, name, number }) =>(
+            {filterContacts.map(({ id, name, phone }) =>(
               <li key={id} className={css.item}>
                 <p className={css.name}>{name}</p>
-                <p className={css.number}>{number}</p>
+                <p className={css.phone}>{phone}</p>
                 <button type="button" onClick={() => onDeleteBtn(id)}>Delete</button>
               </li>
             ))}
@@ -39,7 +39,7 @@ ContactList.propTypes = {
       propTypes.exact({
         id: propTypes.string,
         name: propTypes.string,
-        number: propTypes.string,
+        phone: propTypes.string,
       }),
     ),
   };
