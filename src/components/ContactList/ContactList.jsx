@@ -9,7 +9,7 @@ export default function ContactList() {
     const filterValue = useSelector(selectFilter);
     const dispatch = useDispatch();
 
-    const onDeleteBtn = id => dispatch(deleteContact(id));
+    const onDeleteBtn = (id) => dispatch(deleteContact(id));
 
     const filteredContacts = (contacts, filterValue) => 
       filterValue
